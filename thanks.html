@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're on the list — AiDigital Solutions Arena</title>
+<style>
+@font-face { font-family:'Poppins'; src:url('assets/Poppins-Black.ttf'); font-weight:900; }
+@font-face { font-family:'Poppins'; src:url('assets/Poppins-SemiBold.ttf'); font-weight:600; }
+@font-face { font-family:'Poppins'; src:url('assets/Poppins-Regular.ttf'); font-weight:400; }
+@font-face { font-family:'Playfair'; src:url('assets/PlayfairDisplay.ttf'); font-weight:400 900; }
+:root{
+  --bg-deep:#160810; --bg-mid:#2e0f2b; --purple:#4a1942; --purple-light:#6b2a5e;
+  --gold-bright:#d4af37; --gold-light:#f4e2a1; --cream:#f5eef7; --cream-warm:#f8ecc4;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Poppins',sans-serif; color:var(--cream); min-height:100vh;
+  display:flex; align-items:center; justify-content:center; text-align:center; padding:32px;
+  background:
+    radial-gradient(ellipse 900px 700px at 85% -5%, rgba(212,175,55,0.16), transparent 60%),
+    radial-gradient(ellipse 800px 800px at -10% 40%, rgba(155,79,132,0.20), transparent 65%),
+    linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 30%, var(--purple) 65%, var(--bg-deep) 100%);
+}
+.card{
+  max-width:520px; padding:56px 40px; border-radius:28px;
+  background:linear-gradient(160deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  border:1px solid rgba(255,255,255,0.14); backdrop-filter:blur(10px);
+  box-shadow:0 40px 90px rgba(0,0,0,0.4);
+}
+img{width:64px; height:64px; border-radius:50%; margin:0 auto 24px;}
+h1{font-size:30px; font-weight:800; margin-bottom:14px;}
+p{opacity:0.78; line-height:1.6; margin-bottom:28px;}
+a{
+  display:inline-block; font-weight:600; font-size:15px; padding:15px 28px; border-radius:100px;
+  background:linear-gradient(100deg,#8a6508,var(--gold-bright)); color:#241018; text-decoration:none;
+}
+</style>
+</head>
+<body>
+  <div class="card">
+    <img src="assets/logo.png" alt="AiDigital Solutions Arena logo">
+    <h1>You're on the list.</h1>
+    <p>Thanks for joining — we'll email you the moment the book and new tools go live. No spam, just the launch.</p>
+    <a href="/">Back to the site</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AiDigital Solutions Arena — Tools for Real Estate Agents Who Refuse to Blend In</title>
+<meta name="description" content="AI-powered prompt systems and toolkits for real estate professionals. The Naija Agents Fast Deal Closing Prompts launching soon.">
+<style>
+@font-face { font-family:'Poppins'; src:url('assets/Poppins-Black.ttf'); font-weight:900; }
+@font-face { font-family:'Poppins'; src:url('assets/Poppins-Bold.ttf'); font-weight:700; }
+@font-face { font-family:'Poppins'; src:url('assets/Poppins-SemiBold.ttf'); font-weight:600; }
+@font-face { font-family:'Poppins'; src:url('assets/Poppins-Medium.ttf'); font-weight:500; }
+@font-face { font-family:'Poppins'; src:url('assets/Poppins-Regular.ttf'); font-weight:400; }
+@font-face { font-family:'Playfair'; src:url('assets/PlayfairDisplay.ttf'); font-weight:400 900; }
+
+:root{
+  --bg-deep:#160810;
+  --bg-mid:#2e0f2b;
+  --purple:#4a1942;
+  --purple-light:#6b2a5e;
+  --purple-accent:#9b4f84;
+  --gold-dark:#8a6508;
+  --gold:#b8860b;
+  --gold-bright:#d4af37;
+  --gold-light:#f4e2a1;
+  --cream:#f5eef7;
+  --cream-warm:#f8ecc4;
+  --line:rgba(255,255,255,0.14);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Poppins',sans-serif;
+  background:var(--bg-mid);
+  color:var(--cream);
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+
+::selection{background:var(--gold-bright);color:var(--bg-deep);}
+
+/* focus visibility */
+a:focus-visible, button:focus-visible, input:focus-visible{
+  outline:2px solid var(--gold-bright); outline-offset:3px;
+}
+
+/* ---------- background atmosphere ---------- */
+.atmosphere{
+  position:fixed; inset:0; z-index:-1;
+  background:
+    radial-gradient(ellipse 900px 700px at 85% -5%, rgba(212,175,55,0.16), transparent 60%),
+    radial-gradient(ellipse 800px 800px at -10% 40%, rgba(155,79,132,0.20), transparent 65%),
+    linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 30%, var(--purple) 65%, var(--bg-deep) 100%);
+}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(22,8,16,0.55);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 32px; max-width:1180px; margin:0 auto;
+}
+.nav-brand{display:flex; align-items:center; gap:12px;}
+.nav-brand img{width:38px; height:38px; border-radius:50%;}
+.nav-brand span{font-weight:600; font-size:15px; letter-spacing:2px; text-transform:uppercase; color:var(--cream-warm);}
+.nav-cta{
+  font-weight:600; font-size:14px; letter-spacing:0.5px;
+  padding:11px 22px; border-radius:100px;
+  background:linear-gradient(100deg,var(--gold-dark),var(--gold-bright));
+  color:#241018;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.nav-cta:hover{transform:translateY(-2px); box-shadow:0 10px 26px rgba(212,175,55,0.35);}
+
+/* ---------- hero ---------- */
+.hero{
+  padding:96px 0 80px;
+  display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
+}
+.eyebrow{
+  font-size:13px; font-weight:600; letter-spacing:4px; text-transform:uppercase;
+  color:var(--gold-light); opacity:0.9; display:flex; align-items:center; gap:12px;
+}
+.eyebrow::before{content:'';width:26px;height:1px;background:var(--gold-bright);}
+.hero h1{
+  font-family:'Poppins'; font-weight:900; font-size:56px; line-height:1.08;
+  margin:22px 0 20px; letter-spacing:-0.5px;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(100deg,#8a6508,var(--gold-bright) 30%,var(--gold-light) 50%,var(--gold-bright) 70%,#8a6508);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.hero .sub{
+  font-family:'Playfair'; font-style:italic; font-weight:500;
+  font-size:22px; line-height:1.6; color:var(--cream); opacity:0.88;
+  max-width:480px; margin-bottom:34px;
+}
+.hero-ctas{display:flex; gap:16px; flex-wrap:wrap;}
+.btn-primary{
+  font-weight:600; font-size:15px; padding:16px 30px; border-radius:100px;
+  background:linear-gradient(100deg,var(--gold-dark),var(--gold-bright));
+  color:#241018; border:none; cursor:pointer;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 32px rgba(212,175,55,0.35);}
+.btn-ghost{
+  font-weight:600; font-size:15px; padding:16px 28px; border-radius:100px;
+  border:1px solid rgba(255,255,255,0.3); color:var(--cream);
+  background:rgba(255,255,255,0.04); backdrop-filter:blur(6px);
+  transition:border-color .25s ease, background .25s ease;
+}
+.btn-ghost:hover{border-color:var(--gold-bright); background:rgba(255,255,255,0.08);}
+
+.hero-visual{position:relative; display:flex; justify-content:center; align-items:center; perspective:1400px; min-height:480px;}
+.mock-glow{
+  position:absolute; width:560px; height:560px; border-radius:50%;
+  background:radial-gradient(circle, rgba(212,175,55,0.30), transparent 68%);
+  top:50%; left:50%; transform:translate(-50%,-50%); z-index:0; filter:blur(18px);
+}
+.mock-cluster-outer{ position:relative; width:520px; height:480px; }
+.mock-cluster{ position:absolute; top:0; left:0; width:520px; height:480px; }
+
+/* shared screen fill */
+.mock-screen{
+  width:100%; height:100%;
+  background-image:url('assets/Book_Cover_Custom.jpg');
+  background-size:cover; background-position:center 22%;
+  border-radius:inherit;
+}
+
+/* laptop */
+.mock-laptop{
+  position:absolute; left:0; top:26px; width:340px; z-index:1;
+  transform:rotate(-6deg);
+  filter:drop-shadow(0 30px 50px rgba(0,0,0,0.45));
+}
+.mock-laptop .screen{
+  background:#0c0509; border-radius:10px 10px 0 0; padding:9px 9px 0;
+  border:1px solid rgba(255,255,255,0.15); border-bottom:none;
+}
+.mock-laptop .screen-inner{ width:100%; aspect-ratio:16/10.5; border-radius:3px; overflow:hidden; }
+.mock-laptop .base{
+  height:13px; background:linear-gradient(180deg,#3a1f34,#1c0b16);
+  border-radius:0 0 7px 7px; position:relative;
+}
+.mock-laptop .base::after{
+  content:''; position:absolute; left:50%; top:0; transform:translateX(-50%);
+  width:52px; height:4px; background:rgba(255,255,255,0.15); border-radius:0 0 4px 4px;
+}
+
+/* tablet */
+.mock-tablet{
+  position:absolute; right:6px; top:0; width:168px; z-index:2;
+  transform:rotate(8deg);
+  filter:drop-shadow(0 24px 40px rgba(0,0,0,0.45));
+}
+.mock-tablet .frame{
+  background:#170a11; border-radius:16px; padding:10px 8px;
+  border:1px solid rgba(255,255,255,0.18);
+}
+.mock-tablet .screen-inner{ width:100%; aspect-ratio:3/4; border-radius:6px; overflow:hidden; }
+.mock-tablet .home{ width:16px; height:16px; border-radius:50%; border:1.5px solid rgba(255,255,255,0.35); margin:8px auto 0; }
+
+/* phone */
+.mock-phone{
+  position:absolute; right:34px; bottom:-6px; width:98px; z-index:3;
+  transform:rotate(-4deg);
+  filter:drop-shadow(0 20px 34px rgba(0,0,0,0.5));
+}
+.mock-phone .frame{
+  background:#170a11; border-radius:20px; padding:7px;
+  border:1px solid rgba(255,255,255,0.2);
+}
+.mock-phone .screen-inner{ width:100%; aspect-ratio:9/19; border-radius:13px; overflow:hidden; position:relative; }
+.mock-phone .notch{
+  position:absolute; top:0; left:50%; transform:translateX(-50%);
+  width:34px; height:8px; background:#170a11; border-radius:0 0 8px 8px; z-index:2;
+}
+
+/* hardcopy book */
+.mock-book{
+  position:absolute; left:22px; bottom:-14px; width:150px; z-index:4;
+  transform:rotate(5deg);
+  filter:drop-shadow(0 26px 40px rgba(0,0,0,0.5));
+}
+.mock-book .cover{
+  width:100%; aspect-ratio:0.7; border-radius:2px 6px 6px 2px; overflow:hidden;
+  background-image:url('assets/Book_Cover_Custom.jpg'); background-size:cover; background-position:center;
+  position:relative; border:1px solid rgba(255,255,255,0.12);
+}
+.mock-book .spine{
+  position:absolute; left:-7px; top:2px; bottom:2px; width:7px;
+  background:linear-gradient(90deg,#0c0509,#2e0f2b);
+  border-radius:3px 0 0 3px;
+}
+.mock-book .pages{
+  position:absolute; right:-5px; top:3px; bottom:3px; width:5px;
+  background:repeating-linear-gradient(180deg,#f4e2a1 0 2px, #e4d0a0 2px 3px);
+  border-radius:0 2px 2px 0; opacity:0.85;
+}
+.badge-float2{
+  position:absolute; top:-6px; left:180px; z-index:5;
+  width:78px; height:78px; border-radius:50%;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  background:radial-gradient(circle at 35% 30%, var(--purple-light), var(--purple) 70%);
+  border:2px solid; border-image:linear-gradient(140deg,var(--gold-light),var(--gold),var(--gold-light)) 1;
+  box-shadow:0 14px 30px rgba(0,0,0,0.4);
+}
+.badge-float2 b{font-size:17px; color:var(--gold-light); line-height:1;}
+.badge-float2 span{font-size:7px; letter-spacing:1px; color:var(--cream-warm); margin-top:2px;}
+
+/* ---------- section shared ---------- */
+section{padding:100px 0;}
+.section-head{text-align:center; max-width:640px; margin:0 auto 56px;}
+.section-head h2{
+  font-family:'Poppins'; font-weight:800; font-size:38px; margin-top:16px; letter-spacing:-0.3px;
+}
+.section-head p{margin-top:16px; font-size:17px; color:var(--cream); opacity:0.75; line-height:1.6;}
+.section-head .eyebrow{justify-content:center;}
+.section-head .eyebrow::before{display:none;}
+.section-head .eyebrow::after{content:'';width:26px;height:1px;background:var(--gold-bright);}
+
+/* ---------- collection grid ---------- */
+.grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+.card{
+  position:relative; border-radius:24px; padding:30px 26px 28px;
+  background:linear-gradient(160deg, rgba(255,255,255,0.07), rgba(255,255,255,0.015));
+  border:1px solid var(--line); backdrop-filter:blur(8px);
+  transition:transform .3s ease, border-color .3s ease;
+  display:flex; flex-direction:column;
+}
+.card:hover{transform:translateY(-6px); border-color:rgba(212,175,55,0.4);}
+.card-thumb{
+  width:100%; aspect-ratio:3/4; border-radius:14px; overflow:hidden; margin-bottom:22px;
+  background:linear-gradient(160deg,var(--purple-light),var(--bg-deep));
+  display:flex; align-items:center; justify-content:center;
+  border:1px solid rgba(255,255,255,0.12);
+}
+.card-thumb img{width:100%; height:100%; object-fit:cover;}
+.card-thumb.locked{
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
+}
+.card-thumb.locked .lock{
+  width:42px; height:42px; border-radius:50%; border:1.5px solid var(--gold-bright);
+  display:flex; align-items:center; justify-content:center; font-size:16px; color:var(--gold-light);
+}
+.badge{
+  display:inline-block; font-size:11px; font-weight:600; letter-spacing:1.5px;
+  padding:6px 13px; border-radius:100px; text-transform:uppercase;
+  background:rgba(212,175,55,0.14); color:var(--gold-light); border:1px solid rgba(212,175,55,0.4);
+  width:fit-content; margin-bottom:14px;
+}
+.card h3{font-size:19px; font-weight:700; margin-bottom:10px; line-height:1.3;}
+.card p{font-size:14.5px; color:var(--cream); opacity:0.72; line-height:1.6; flex-grow:1; margin-bottom:20px;}
+.card-cta{
+  font-size:14px; font-weight:600; color:var(--gold-light);
+  display:flex; align-items:center; gap:8px;
+}
+.card-cta::after{content:'\2192'; transition:transform .25s ease;}
+.card:hover .card-cta::after{transform:translateX(4px);}
+
+/* ---------- story strip ---------- */
+.story{
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  text-align:center;
+}
+.story blockquote{
+  font-family:'Playfair'; font-style:italic; font-weight:600;
+  font-size:34px; line-height:1.4; max-width:760px; margin:0 auto 26px;
+  color:var(--gold-light);
+}
+.story p{max-width:600px; margin:0 auto; color:var(--cream); opacity:0.78; font-size:16px; line-height:1.7;}
+
+/* ---------- waitlist ---------- */
+.waitlist{
+  text-align:center;
+}
+.waitlist-card{
+  max-width:620px; margin:0 auto; padding:52px 44px;
+  border-radius:28px;
+  background:linear-gradient(160deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  border:1px solid var(--line); backdrop-filter:blur(10px);
+  box-shadow:0 40px 90px rgba(0,0,0,0.35);
+}
+.waitlist-card h2{font-size:32px; font-weight:800; margin-bottom:14px;}
+.waitlist-card p{color:var(--cream); opacity:0.75; margin-bottom:32px; line-height:1.6;}
+.form-row{display:flex; gap:12px; flex-wrap:wrap; justify-content:center;}
+.form-row input[type=email]{
+  flex:1; min-width:220px; padding:16px 20px; border-radius:100px;
+  border:1px solid rgba(255,255,255,0.25); background:rgba(255,255,255,0.06);
+  color:var(--cream); font-size:15px; font-family:'Poppins';
+}
+.form-row input[type=email]::placeholder{color:rgba(245,238,247,0.45);}
+.form-note{font-size:12.5px; opacity:0.55; margin-top:16px;}
+.thanks-msg{display:none; font-size:15px; color:var(--gold-light); font-weight:600;}
+
+/* ---------- footer ---------- */
+footer{padding:56px 0 40px; border-top:1px solid var(--line);}
+.footer-inner{display:flex; flex-direction:column; align-items:center; gap:18px; text-align:center;}
+.footer-inner img{width:52px; height:52px; border-radius:50%;}
+.footer-inner .fname{font-weight:600; letter-spacing:3px; font-size:14px; text-transform:uppercase; color:var(--cream-warm);}
+.footer-inner .ftag{font-size:13.5px; opacity:0.55; max-width:340px;}
+.footer-inner .fcopy{font-size:12px; opacity:0.4; margin-top:10px;}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+.reveal.show{opacity:1; transform:translateY(0);}
+
+/* ---------- responsive ---------- */
+@media (max-width:880px){
+  .hero{grid-template-columns:1fr; padding-top:64px; text-align:center;}
+  .hero .sub{margin-left:auto; margin-right:auto;}
+  .hero-ctas{justify-content:center;}
+  .eyebrow{justify-content:center;}
+  .eyebrow::before{display:none;}
+  .hero h1{font-size:40px;}
+  .hero-visual{margin-top:20px;}
+  .grid{grid-template-columns:1fr; }
+  .section-head h2{font-size:29px;}
+  .story blockquote{font-size:25px;}
+  .waitlist-card{padding:38px 24px;}
+  section{padding:72px 0;}
+}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important; scroll-behavior:auto !important;}
+}
+@media (max-width:480px){
+  .nav-brand span{display:none;}
+  .nav-inner{padding:14px 20px;}
+  .nav-cta{padding:10px 18px; font-size:13px;}
+  .wrap{padding:0 22px;}
+  .mock-cluster-outer{width:260px; height:240px; margin:0 auto;}
+  .mock-cluster{transform:scale(0.5); transform-origin:top left;}
+  .hero-visual{min-height:0; margin-top:-10px;}
+  .mock-glow{width:260px; height:260px;}
+}
+</style>
+</head>
+<body>
+
+<div class="atmosphere"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand">
+      <img src="assets/logo.png" alt="AiDigital Solutions Arena logo">
+      <span>AiDigital Solutions Arena</span>
+    </a>
+    <a href="#waitlist" class="nav-cta">Join the Waitlist</a>
+  </div>
+</nav>
+
+<main id="top">
+
+  <header class="hero wrap">
+    <div>
+      <p class="eyebrow">AiDigital Solutions Arena</p>
+      <h1>Built for agents who refuse to sound like <em>everyone else.</em></h1>
+      <p class="sub">Ready-to-use systems for real estate professionals done guessing what to post, say, or send next.</p>
+      <div class="hero-ctas">
+        <a href="#waitlist" class="btn-primary">Join the Waitlist</a>
+        <a href="#collection" class="btn-ghost">See What's Coming</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="mock-glow"></div>
+      <div class="mock-cluster-outer">
+      <div class="mock-cluster">
+
+        <div class="mock-laptop">
+          <div class="screen">
+            <div class="screen-inner mock-screen"></div>
+          </div>
+          <div class="base"></div>
+        </div>
+
+        <div class="mock-tablet">
+          <div class="frame">
+            <div class="screen-inner mock-screen"></div>
+            <div class="home"></div>
+          </div>
+        </div>
+
+        <div class="mock-phone">
+          <div class="frame">
+            <div class="screen-inner mock-screen">
+              <div class="notch"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mock-book">
+          <div class="spine"></div>
+          <div class="cover"></div>
+          <div class="pages"></div>
+        </div>
+
+        <div class="badge-float2"><b>500+</b><span>PROMPTS</span></div>
+      </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="collection" class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">The Collection</p>
+      <h2>What's launching first</h2>
+      <p>Every product starts the same way — a real problem real professionals deal with, turned into a ready-to-use system.</p>
+    </div>
+    <div class="grid">
+
+      <div class="card reveal">
+        <div class="card-thumb"><img src="assets/Book_Cover_Custom.jpg" alt="The Naija Agents Fast Deal Closing Prompts"></div>
+        <span class="badge">Launching Soon</span>
+        <h3>The Naija Agents Fast Deal Closing Prompts</h3>
+        <p>500+ ready-to-use prompts covering every stage of a property sale — from your first caption to your final closing script.</p>
+        <a href="#waitlist" class="card-cta">Notify me at launch</a>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-thumb"><img src="assets/UAE_Cover.jpg" alt="The UAE Agents Fast Deal Closing Prompts"></div>
+        <span class="badge">In Development</span>
+        <h3>The UAE Agents Fast Deal Closing Prompts</h3>
+        <p>500+ ready-to-use prompts for every stage of property sales — rebuilt for Dubai and the wider UAE market.</p>
+        <a href="#waitlist" class="card-cta">Get early access</a>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-thumb"><img src="assets/WorldClass_Cover.jpg" alt="The World-Class Agents Fast Deal Closing Prompts"></div>
+        <span class="badge">In Development</span>
+        <h3>The World-Class Agents Fast Deal Closing Prompts</h3>
+        <p>500+ ready-to-use prompts for every stage of property sales — the global edition, built for agents in any market.</p>
+        <a href="#waitlist" class="card-cta">Get early access</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="story reveal">
+    <div class="wrap">
+      <blockquote>"We build systems, not stitched-together prompts."</blockquote>
+      <p>AiDigital Solutions Arena creates AI-powered toolkits for people who'd rather spend their time doing the work than staring at a blank screen. No fluff, no filler — just tools that sound like you, ready when you need them.</p>
+    </div>
+  </section>
+
+  <section id="waitlist" class="waitlist wrap">
+    <div class="waitlist-card reveal">
+      <h2>Be first through the door</h2>
+      <p>Get notified the moment the book and new tools go live. No spam — just the launch.</p>
+      <form id="waitlistForm" name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
+        <input type="hidden" name="form-name" value="waitlist">
+        <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <div class="form-row">
+          <input type="email" name="email" placeholder="you@email.com" required>
+          <button type="submit" class="btn-primary">Notify Me</button>
+        </div>
+        <p class="form-note">One email when we launch. Unsubscribe anytime.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <img src="assets/logo.png" alt="AiDigital Solutions Arena logo">
+    <span class="fname">AiDigital Solutions Arena</span>
+    <p class="ftag">AI-powered systems for real estate professionals.</p>
+    <p class="fcopy">&copy; 2026 AiDigital Solutions Arena. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// scroll reveal
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
+},{threshold:0.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// subtle tilt on hero mockup cluster
+const cluster = document.querySelector('.mock-cluster');
+if(cluster && window.matchMedia('(pointer:fine)').matches){
+  document.querySelector('.hero-visual').addEventListener('mousemove', (e)=>{
+    const r = cluster.getBoundingClientRect();
+    const x = (e.clientX - r.left - r.width/2)/r.width;
+    const y = (e.clientY - r.top - r.height/2)/r.height;
+    cluster.style.transform = `rotate(${-x*4}deg) rotateX(${y*4}deg)`;
+  });
+  document.querySelector('.hero-visual').addEventListener('mouseleave', ()=>{
+    cluster.style.transform = 'rotate(0deg)';
+  });
+}
+</script>
+
+</body>
+</html>
